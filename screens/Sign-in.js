@@ -147,4 +147,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignInScreen
+export default SignInScreen;

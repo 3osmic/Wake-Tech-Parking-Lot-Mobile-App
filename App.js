@@ -1,59 +1,55 @@
 import React from 'react';
 import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import {styles} from './StyleSheet';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { styles } from './StyleSheet';
+import ForgotPassword from './Forgot-Password'; // Import the ForgotPassword component
 
+// Creating a stack navigator
+const Stack = createStackNavigator();
+
+// The Main App component
 export default function App() {
   return (
-    // This is the Background Image
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+// Login screen component
+function LoginScreen({ navigation }) {
+  return (
     <ImageBackground source={require('./assets/Background.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
-        {/* This is our App Logo */}
         <Image source={require('./assets/transparent_icon.png')} style={styles.logo} />
-
-        {/* Login Text */}
         <Text style={[styles.loginText, styles.centeredText]}>Login</Text>
-        {/* Please sign in to continue text */}
         <Text style={[styles.greyText, styles.centeredText]}>Please sign in to continue.</Text>
-
-        {/* Username field thats actually inside the username box */}
         <TextInput
           style={styles.input}
           placeholder="Enter your username"
-          // You can handle onChangeText event here
-          onChangeText={(text) => console.log(text)}
-          // This is just applying bold font style when the user typing
           fontWeight={'bold'}
         />
-
-        {/* This is the Password Field */}
         <View style={styles.passwordInputContainer}>
           <TextInput
             style={styles.passwordInput}
             placeholder="Enter your password"
             secureTextEntry={true}
-            // You can handle onChangeText event here
-            onChangeText={(text) => console.log(text)}
           />
-          {/* The actual Forgot Password Button */}
-          <TouchableOpacity style={styles.forgotButton}>
+          <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={styles.forgotText}>FORGOT</Text>
           </TouchableOpacity>
         </View>
-
-        {/* The LOGIN Button */}
         <TouchableOpacity style={styles.loginButton}>
           <Text style={styles.loginButtonText}>LOGIN</Text>
         </TouchableOpacity>
-
-        {/* This is the Sign Up Link */}
         <View style={styles.signUpLink}>
-          {/* The Information Text under the log in button */}
           <Text style={styles.centeredText}>Don't have an account? </Text>
-          {/* The Sign Up Button */}
           <TouchableOpacity><Text style={styles.signUpText}>Sign up</Text></TouchableOpacity>
         </View>
-
-        {/* Status Bar */}
         <StatusBar style="auto" />
       </View>
     </ImageBackground>

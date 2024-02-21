@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+
 export const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -84,4 +85,14 @@ export const styles = StyleSheet.create({
     signUpText: {
       color: 'blue',
     },
-  });
+    backButton: {
+      position: 'absolute',
+      top: 40,
+      left: 20,
+      zIndex: 10, 
+    },
+    backIcon: {
+      width: 30, 
+      height: 30, 
+    },
+});

@@ -13,8 +13,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -26,7 +26,6 @@ function LoginScreen({ navigation }) {
     <ImageBackground source={require('./assets/Background.jpg')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <Image source={require('./assets/transparent_icon.png')} style={styles.logo} />
-        <Text style={[styles.loginText, styles.centeredText]}>Login</Text>
         <Text style={[styles.greyText, styles.centeredText]}>Please sign in to continue.</Text>
         <TextInput
           style={styles.input}

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, ImageBackground, Image, Text } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
+import { saveSpot } from '../components/parking.js';
 
-export const PreviousParking = ({ navigation }) => {
-  const [parkingSpot, setParkingSpot] = useState('');
+export const PreviousParking = ({ navigation, route }) => {
 
   const handleSave = () => {
     // Save parking spot data (e.g., to AsyncStorage or state management)
     // Navigate to SavedParkingListScreen and pass the saved parking spot data
-    navigation.navigate('SavedParkingList', { parkingSpot });
+    saveSpot(route.params);
+    navigation.navigate('SavedParkingList', true);
   };
 
   return (
@@ -20,15 +21,9 @@ export const PreviousParking = ({ navigation }) => {
 
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
-          <Text style={styles.loginText}>Save Parking Spot</Text>
+          <Text style={styles.loginText}>Would you like to confirm your choice?</Text>
         </View>
-        <TextInput
-          placeholder="Enter parking spot details"
-          value={parkingSpot}
-          onChangeText={setParkingSpot}
-          style={{ borderWidth: 1, padding: 10, marginBottom: 10, width: '80%', backgroundColor: 'white' }}
-        />
-        <Button title="Save" onPress={handleSave} />
+        <Button title="Confirm" onPress={handleSave} />
       </View>
     </ImageBackground>
   );

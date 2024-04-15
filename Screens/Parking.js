@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { parkingSpot } from '../components/parking.js';
 
-const Parking = () => {
+const Parking = ({ navigation }) => {
+
     return (
         <ImageBackground
             source={require('../assets/bg2.png')}
@@ -24,7 +27,7 @@ const Parking = () => {
                             <Image source={require('../images/camera-01.png')} style={styles.cameraIcon}/>
                             <Image source={require('../images/exclamation.png')} style={styles.exIcon}/>
                         </View>
-                        <TouchableOpacity onPress={() => navigation.navigate('PreviousParking')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('SaveParking')}>
                             <Text style={styles.parkingButtonText}>Save Parking Spot</Text>
                         </TouchableOpacity>
                     </View>

@@ -2,9 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { getAuth } from "firebase/auth";
 import { parkingSpot } from '../components/parking.js';
 
 const Parking = ({ navigation }) => {
+    const auth = getAuth();
+    const user = auth.currentUser;
 
     return (
         <ImageBackground
@@ -14,7 +17,7 @@ const Parking = ({ navigation }) => {
             <View style={styles.container}>
                 <View style={styles.parkingHeader}>
                     <Image source={require('../images/default-pfp.png')} style={styles.image} />
-                    <Text style={styles.username}>Username Here</Text>
+                    <Text style={styles.username}>{user.displayName}</Text>
                 </View>
                 <MaterialIcons name="notifications" size={30} color="#b9dbe3" />
             </View>

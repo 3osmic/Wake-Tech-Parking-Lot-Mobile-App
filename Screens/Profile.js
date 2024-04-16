@@ -1,10 +1,16 @@
 import React, { useRef } from 'react';
-import { View, ImageBackground, Image, TouchableOpacity, DrawerLayoutAndroid, Text, SafeAreaView, ScrollView } from 'react-native';
+import { View, ImageBackground, Image, TouchableOpacity, DrawerLayoutAndroid, Text, SafeAreaView, ScrollView, Input } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 import { styles } from '../StyleSheet';
+import { getAuth } from "firebase/auth";
 import DrawerContent from './DrawerContent';
 import { Ionicons } from '@expo/vector-icons';
 
 const Profile = ({ navigation }) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const email = user.email;
+  const username = user.displayName;
 
   let drawerRef = useRef(null);
 
@@ -43,10 +49,9 @@ const Profile = ({ navigation }) => {
           </View>
 
           <View style={styles.infoContainer}>
-            <Text style={[styles.text, {fontWeight: '200', fontSize: 30}]}>Username Here</Text>
-            <Text style={[styles.text, {color: '#AEB5BC', fontSize: 14}]}>Email Here</Text>
+            <Text style={[styles.text, {fontWeight: '200', fontSize: 30}]}>{username}</Text>
+            <Text style={[styles.text, {color: '#AEB5BC', fontSize: 14}]}>{email}</Text>
           </View>
-
       </View>
       </ImageBackground>
     </DrawerLayoutAndroid>

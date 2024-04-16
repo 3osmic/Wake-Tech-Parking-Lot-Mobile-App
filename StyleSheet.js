@@ -247,8 +247,6 @@ titleIcon: {
   },
   drawerContainer: {
     flex: 1,
-    // paddingTop: 50,
-    // paddingLeft: 20,
     height: '100%',
   },
   defaultIcon: {
@@ -256,9 +254,10 @@ titleIcon: {
     height: '80%',
     resizeMode: 'contain',
   }, 
-  drawerContent: {
-    backgroundColor: 'white',
-  },
+  //background color declared on profile page
+  // drawerContent: {
+  //   backgroundColor: 'white',
+  // },
   drawerHeader: {
     height: '50%',
     paddingBottom: 50,
@@ -275,8 +274,6 @@ titleIcon: {
     fontWeight: 'bold',
     color: 'black',
     padding: 20
-  },
-  drawerButtons: {
   },
   drawerSubtext: {
     fontSize: 14,

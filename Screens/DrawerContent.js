@@ -5,11 +5,10 @@ import { getAuth, signOut } from "firebase/auth";
 import { styles } from '../StyleSheet';
 
 const DrawerContent = ({ navigation, drawerRef }) => {
-
   const auth = getAuth();
   const user = auth.currentUser;
   const email = user.email;
-  const username = email.substring(0, email.indexOf("@"));
+  const username = user.displayName;
 
   const Logout = () => {
     signOut(auth).then(() => {

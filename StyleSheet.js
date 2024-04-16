@@ -426,6 +426,7 @@ titleIcon: {
   },
 // Save Parking List Page
   ParkingListContainer: {
+    flex: 1,
     marginTop: '50%',
     alignItems: 'center',
   },

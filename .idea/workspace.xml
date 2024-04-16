@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54767c0d-7b60-4100-bf1a-ffee93df4a97" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Screens/NavigationPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Screens/ParkingFullView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/NavigationPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/NavigationPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/Parking.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/Parking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/ParkingSpots.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/ParkingSpots.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/PreviousParking.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/PreviousParking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screens/SavedParkingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/Screens/SavedParkingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>

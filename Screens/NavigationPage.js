@@ -4,12 +4,15 @@ import {styles} from '../StyleSheet.js'; // corrected import
 import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import { parkingSpot, getLatitude, getLongitude } from '../components/parking.js';
 
 export const Navigation = ({ navigation }) => { // destructuring navigation from props
     const [location, setLocation] = useState(null);
+    const [parkingLat, setParkingLat] = useState(0);
+    const [parkingLong, setParkingLong] = useState(0);
     const { width, height } = Dimensions.get("window");
     const ASPECT_RATIO = width / height;
-    const LATITUDE_DELTA = 0.02;
+    const LATITUDE_DELTA = 0.5;
     const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
     useEffect(() => {
@@ -23,18 +26,30 @@ export const Navigation = ({ navigation }) => { // destructuring navigation from
     
           let location = await Location.getCurrentPositionAsync({});
           setLocation(location);
-        })();
-      }, []);
 
+          if (parkingSpot !== undefined) {
+            let latitude = getLatitude(parkingSpot);
+            let longitude = getLongitude(parkingSpot);
+
+            setParkingLat(latitude);
+            setParkingLong(longitude);
+          }
+        })();
+    }, []);
+
+    const handleCoordinateChange = async () => {
+      if (parkingSpot !== undefined) {
+        let latitude = getLatitude(parkingSpot);
+        let longitude = getLongitude(parkingSpot);
+
+        setParkingLat(latitude);
+        setParkingLong(longitude);
+      }
+    };
 
     return (
         <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
-        <View style={{flex: 1}}>
-            <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
-                <Image source={require('../assets/back_arrow.png')} style={styles2.navIcon} />
-            </TouchableOpacity>
-        </View>
-        <View style={styles.container}>
+        <View style={styles2.container}>
             <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
             <Text style={[styles.loginText]}>Your parking space is marked, select it to enter google maps</Text>
         </View>
@@ -42,8 +57,8 @@ export const Navigation = ({ navigation }) => { // destructuring navigation from
             <MapView
                 style={styles2.map} 
                 initialRegion={{
-                    latitude: 35.8685808472217,
-                    longitude: -78.54111539956504,
+                    latitude: 35.80685706956246,
+                    longitude: -78.65431314215556,
                     latitudeDelta: LATITUDE_DELTA,
                     longitudeDelta: LONGITUDE_DELTA,
                 }}
@@ -51,17 +66,20 @@ export const Navigation = ({ navigation }) => { // destructuring navigation from
             >
                 <Marker
                     coordinate={{
-                        latitude: 35.8685808472217,
-                        longitude: -78.54111539956504,
+                        latitude: parkingLat,
+                        longitude: parkingLong,
                     }}
                     title='Parking Spot'
                 ></Marker>
+
             </MapView>
         </View>
 
 
-        <View style={styles2.container}>    
-
+        <View style={styles.container}>    
+          <TouchableOpacity onPress={handleCoordinateChange}>
+            <Text style={styles.parkingButtonText}>Refresh</Text>
+          </TouchableOpacity>
         </View>
         </ImageBackground>
     );
@@ -70,17 +88,15 @@ export const Navigation = ({ navigation }) => { // destructuring navigation from
 const styles2 = StyleSheet.create({
     container: {
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 20,
+        marginTop: 50,
       },
       map: {
         width: '100%',
         height: '100%',
         marginTop: 45,
-      },
-      navIcon: {
-        marginTop: 25,
-        width: 50,
-        height: 25,
-        marginLeft: 10,
       },
 });
 

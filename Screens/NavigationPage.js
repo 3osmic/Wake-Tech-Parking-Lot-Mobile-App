@@ -30,14 +30,22 @@ export const Navigation = ({ navigation }) => { // destructuring navigation from
           if (parkingSpot !== undefined) {
             let latitude = getLatitude(parkingSpot);
             let longitude = getLongitude(parkingSpot);
-            console.log(latitude);
-            console.log(longitude);
+
             setParkingLat(latitude);
             setParkingLong(longitude);
           }
         })();
-      }, []);
+    }, []);
 
+    const handleCoordinateChange = async () => {
+      if (parkingSpot !== undefined) {
+        let latitude = getLatitude(parkingSpot);
+        let longitude = getLongitude(parkingSpot);
+
+        setParkingLat(latitude);
+        setParkingLong(longitude);
+      }
+    };
 
     return (
         <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
@@ -63,12 +71,15 @@ export const Navigation = ({ navigation }) => { // destructuring navigation from
                     }}
                     title='Parking Spot'
                 ></Marker>
+
             </MapView>
         </View>
 
 
         <View style={styles.container}>    
-
+          <TouchableOpacity onPress={handleCoordinateChange}>
+            <Text style={styles.parkingButtonText}>Refresh</Text>
+          </TouchableOpacity>
         </View>
         </ImageBackground>
     );

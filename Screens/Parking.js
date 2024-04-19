@@ -35,6 +35,11 @@ const Parking = ({ navigation }) => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.container2}>
+                        <TouchableOpacity onPress={() => navigation.navigate('SavedParkingList')} style={styles.parkingButton}>
+                            <Text style={styles.parkingButtonText}>Open Previously Saved Parking Spots</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.container3}>
                         <View style={styles.icons}>
                             <Image source={require('../images/camera-01.png')} style={styles.cameraIcon}/>
                             <Image source={require('../images/exclamation.png')} style={styles.exIcon}/>
@@ -43,9 +48,9 @@ const Parking = ({ navigation }) => {
                             <Text style={styles.parkingButtonText}>Get Assigned Parking</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.container3}>
-                        <TouchableOpacity onPress={() => navigation.navigate('SavedParkingList')}>
-                            <Text style={styles.parkingButtonText}>Open Previously Saved Parking Spots</Text>
+                    <View style={styles.container4}>
+                        <TouchableOpacity onPress={() => navigation.navigate('SavedAssigned')}>
+                            <Text style={styles.parkingButtonText}>Open Assigned Parking Spots</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -105,17 +110,30 @@ const styles = StyleSheet.create({
     },
     container2: {
         backgroundColor: 'white',
+        padding: 25,
+        borderRadius: 20,
+        marginTop: 20,
+        marginBottom: 20,
+    },
+    container3: {
+        backgroundColor: 'white',
         padding: 10,
         borderRadius: 20,
-        marginTop: 30,
         flexDirection: 'row',
         alignItems: 'center',
     },
-    container3: {
+    container4: {
         backgroundColor: 'white',
         padding: 25,
         borderRadius: 20,
         marginTop: 30,
+    },
+    container4: {
+        backgroundColor: 'white',
+        padding: 25,
+        borderRadius: 20,
+        marginTop: 20,
+        alignItems: 'center',
     },
     icons: {
         flexDirection: 'row',

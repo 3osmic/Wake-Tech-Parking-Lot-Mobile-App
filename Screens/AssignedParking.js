@@ -5,8 +5,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 const data = [
   { label: 'Southern Wake', value: '1' },
   { label: 'Scott Nothern', value: '2' },
-  { label: 'RTP', value: '3' },
-  { label: 'Western Wake', value: '4' },
+  { label: 'Western Wake', value: '3' },
 ];
 
 export const AssignedParking = ({ navigation }) => {

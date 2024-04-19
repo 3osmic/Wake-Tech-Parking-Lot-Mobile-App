@@ -9,7 +9,6 @@ import Onboarding from './Screens/Onboarding/Onboarding';
 import Homepage from './Screens/Homepage';
 import LoginScreen from './Screens/Login'; // Import Login screen
 import Profile from './Screens/Profile';
-import ParkingSpots from './Screens/ParkingSpots'; // Change Later
 import Parking from './Screens/Parking';
 import NavigationPage from './Screens/NavigationPage';
 import Payments from './Screens/Payments';
@@ -21,6 +20,9 @@ import SavedParkingList from './Screens/SavedParkingList';
 import SavedPayments from './Screens/SavedPayments';
 import MakePayment from './Screens/MakePayment';
 import SaveParking from './Screens/SaveParking';
+import ParkingSpaces from './Screens/ParkingSpaces';
+import AssignedParkingDetails from './Screens/AssignedParkingDetails';
+import SavedAssigned from './Screens/SavedAssigned';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -93,7 +95,6 @@ const App = () => {
           <Stack.Screen name="Signup" component={SignupScreen} />
           <Stack.Screen name="HomePage" component={HomepageTabs} />
           <Stack.Screen name="AssignedParking" component={AssignedParking} />
-          <Stack.Screen name="ParkingSpots" component={ParkingSpots} />
           <Stack.Screen name="PreviousParking" component={PreviousParking} />
           <Stack.Screen name="SavedParkingList" component={SavedParkingList} />
           <Stack.Screen name="Profile" component={Profile} />
@@ -102,6 +103,9 @@ const App = () => {
           <Stack.Screen name="MakePayment" component={MakePayment} />
           <Stack.Screen name="Navigation" component={NavigationPage} />
           <Stack.Screen name="SaveParking" component={SaveParking} />
+          <Stack.Screen name="ParkingSpaces" component={ParkingSpaces} />
+          <Stack.Screen name="AssignedParkingDetails" component={AssignedParkingDetails} />
+          <Stack.Screen name="SavedAssigned" component={SavedAssigned} />
         </Stack.Navigator>
       </NavigationContainer>
     );

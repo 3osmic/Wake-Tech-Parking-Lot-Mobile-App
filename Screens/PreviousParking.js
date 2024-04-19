@@ -12,6 +12,10 @@ export const PreviousParking = ({ navigation, route }) => {
     navigation.navigate('SavedParkingList', true);
   };
 
+  const handleReturn = () => {
+    navigation.navigate('Parking');
+  }
+
   return (
     <ImageBackground
       source={require('../assets/bg2.png')} // Replace 'background.jpg' with your image file
@@ -23,7 +27,12 @@ export const PreviousParking = ({ navigation, route }) => {
           <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
           <Text style={styles.loginText}>Would you like to confirm your choice?</Text>
         </View>
-        <Button title="Confirm" onPress={handleSave} />
+        <View>
+          <Button title="Confirm" onPress={handleSave} />
+        </View>
+        <View style={{ marginTop: 20 }}>
+          <Button title="Go back" onPress={handleReturn} />
+        </View>
       </View>
     </ImageBackground>
   );

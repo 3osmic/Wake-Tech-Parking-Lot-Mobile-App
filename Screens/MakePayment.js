@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
 const MakePayment = () => {
   const [cardNumber, setCardNumber] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
   const navigation = useNavigation();
-
 
   const handleCardNumberChange = (input) => {
     let formattedInput = input.replace(/\D/g, '');
@@ -18,7 +16,6 @@ const MakePayment = () => {
     setCardNumber(formattedInput);
   };
 
-
   const handleExpirationDateChange = (input) => {
     let formattedInput = input.replace(/\D/g, '');
     formattedInput = formattedInput.substring(0, 4);
@@ -28,12 +25,10 @@ const MakePayment = () => {
     setExpirationDate(formattedInput);
   };
 
-
   const handleConfirmPayment = () => {
     const lastFourDigits = cardNumber.slice(-4);
     navigation.navigate('SavedPayments', { lastFourDigits });
   };
-
 
   return (
     <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
@@ -74,7 +69,6 @@ const MakePayment = () => {
     </ImageBackground>
   );
 };
-
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -142,6 +136,5 @@ const styles = StyleSheet.create({
     marginTop: 80,
   },
 });
-
 
 export default MakePayment;

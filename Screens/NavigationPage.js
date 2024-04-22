@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { KeyboardAvoidingView, ImageBackground, Image, Text, View, Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
+import { ImageBackground, Image, Text, View, Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
-import { useNavigation } from '@react-navigation/native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { parkingSpot, getLatitude, getLongitude } from '../components/parking.js';

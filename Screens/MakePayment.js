@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { MaterialIcons } from '@expo/vector-icons';
+import { getAuth } from "firebase/auth";
+import backArrow from '../assets/back_arrow.png';
 
 const MakePayment = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -30,8 +33,28 @@ const MakePayment = () => {
     navigation.navigate('SavedPayments', { lastFourDigits });
   };
 
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  const handleBackPress = () => {
+      navigation.goBack(); // Go back to the previous screen
+    };
+
   return (
     <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
+
+      <View style={styles.container1}>
+        <View style={styles.parkingHeader}>
+          <Image source={require('../images/default-pfp.png')} style={styles.image} />
+          <Text style={styles.username}>{user.displayName}</Text>
+        </View>
+        <MaterialIcons name="notifications" size={30} color="#b9dbe3" />
+      </View>
+
+      <TouchableOpacity onPress={handleBackPress}>
+        <Image source={backArrow} style={{ width: 30, height: 30 , margin: 20, marginBottom: -50}} />
+      </TouchableOpacity>
+
       <View style={styles.container}>
         <Image source={require('../assets/transparent_icon.png')} style={styles.logo} />
         <View style={styles.titleContainer}>
@@ -73,11 +96,29 @@ const MakePayment = () => {
 const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+  },
+  container1: {
+    flexDirection:"row",
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius:20,
+    backgroundColor: 'white',
+  },
+  parkingHeader: {
+    flexDirection:"row",
+    alignItems: 'center',
+  },
+  image: {
+    width: 80, 
+    height: 80, 
+  },
+  username: {
+    marginLeft: 20,
+    fontSize: 20,
   },
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -118,12 +159,11 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   confirmButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#1d4f7e',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
     alignSelf: 'flex-end',
-    marginTop: 10,
     marginRight: 40,
   },
   confirmText: {

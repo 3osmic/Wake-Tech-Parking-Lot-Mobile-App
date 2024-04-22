@@ -22,7 +22,6 @@ import MakePayment from './Screens/MakePayment';
 import SaveParking from './Screens/SaveParking';
 import ParkingSpaces from './Screens/ParkingSpaces';
 import AssignedParkingDetails from './Screens/AssignedParkingDetails';
-import SavedAssigned from './Screens/SavedAssigned';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -105,7 +104,6 @@ const App = () => {
           <Stack.Screen name="SaveParking" component={SaveParking} />
           <Stack.Screen name="ParkingSpaces" component={ParkingSpaces} />
           <Stack.Screen name="AssignedParkingDetails" component={AssignedParkingDetails} />
-          <Stack.Screen name="SavedAssigned" component={SavedAssigned} />
         </Stack.Navigator>
       </NavigationContainer>
     );

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, TextInput, Button, ImageBackground, Image, Text } from 'react-native';
+import React from 'react';
+import { View, Button, ImageBackground, Image, Text } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
 import { saveSpot } from '../components/parking.js';
 

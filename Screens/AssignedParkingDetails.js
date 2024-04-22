@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MaterialIcons } from '@expo/vector-icons';
+import { getAuth } from "firebase/auth";
+import backArrow from '../assets/back_arrow.png';
 
-const AssignedParkingDetails = ({ route }) => {
+const AssignedParkingDetails = ({ route, navigation }) => {
     const { space, time } = route.params;
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
 
@@ -25,8 +28,28 @@ const AssignedParkingDetails = ({ route }) => {
         }
     };
 
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    const handleBackPress = () => {
+        navigation.goBack(); // Go back to the previous screen
+      };
+
     return (
         <ImageBackground source={require('../assets/bg2.png')} style={styles.background}>
+
+            <View style={styles.container1}>
+                <View style={styles.parkingHeader}>
+                    <Image source={require('../images/default-pfp.png')} style={styles.image} />
+                    <Text style={styles.username}>{user.displayName}</Text>
+                </View>
+                <MaterialIcons name="notifications" size={30} color="#b9dbe3" />
+            </View>
+
+            <TouchableOpacity onPress={handleBackPress}>
+                <Image source={backArrow} style={{ width: 30, height: 30 , margin: 20, marginBottom: -50}} />
+            </TouchableOpacity>
+
             <View style={styles.container}>
                 <Image source={require('../assets/transparent_icon.png')} style={styles.wpIcon} />
                 <Text style={styles.title}>Assigned Parking Details</Text>
@@ -48,8 +71,27 @@ const AssignedParkingDetails = ({ route }) => {
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        justifyContent: 'center',
+    },
+    container1: {
+        flexDirection:"row",
         alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 20,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius:20,
+        backgroundColor: 'white',
+    },
+    parkingHeader: {
+       flexDirection:"row",
+       alignItems: 'center',
+    },
+    image: {
+        width: 80, 
+        height: 80, 
+    },
+    username: {
+        marginLeft: 20,
+        fontSize: 20,
     },
     container: {
         flex: 1,

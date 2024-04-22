@@ -1,9 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, ImageBackground, TouchableOpacity } from "react-native";
-import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { getAuth } from "firebase/auth";
-import { parkingSpot } from '../components/parking.js';
 
 const Parking = ({ navigation }) => {
     const auth = getAuth();
@@ -46,11 +44,6 @@ const Parking = ({ navigation }) => {
                         </View>
                         <TouchableOpacity onPress={() => navigation.navigate('AssignedParking')}>
                             <Text style={styles.parkingButtonText}>Get Assigned Parking</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.container4}>
-                        <TouchableOpacity onPress={() => navigation.navigate('SavedAssigned')}>
-                            <Text style={styles.parkingButtonText}>Open Assigned Parking Spots</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -120,19 +113,6 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 20,
         flexDirection: 'row',
-        alignItems: 'center',
-    },
-    container4: {
-        backgroundColor: 'white',
-        padding: 25,
-        borderRadius: 20,
-        marginTop: 30,
-    },
-    container4: {
-        backgroundColor: 'white',
-        padding: 25,
-        borderRadius: 20,
-        marginTop: 20,
         alignItems: 'center',
     },
     icons: {

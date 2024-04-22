@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ImageBackground, Alert, Image, Linking } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import { MaterialIcons } from '@expo/vector-icons';
+import { getAuth } from "firebase/auth";
+import backArrow from '../assets/back_arrow.png';
 
 const ParkingSpaces = ({ navigation, route }) => {
     const { campus } = route.params; // Assuming campus is the value of the selected campus
@@ -54,6 +57,7 @@ const ParkingSpaces = ({ navigation, route }) => {
     const [selectedSpace, setSelectedSpace] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
     const [hasPreviewed, setHasPreviewed] = useState(false);
+    
 
     const handleParkingSpacePress = (space) => {
         const { link } = parkingSpaces[campus][space];
@@ -97,8 +101,28 @@ const ParkingSpaces = ({ navigation, route }) => {
         navigation.navigate('AssignedParkingDetails', { space: selectedSpace, time: selectedTime });
     };
 
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    const handleBackPress = () => {
+        navigation.goBack(); // Go back to the previous screen
+      };
+
     return (
         <ImageBackground source={require('../assets/bg2.png')} style={styles.background}>
+
+            <View style={styles.container1}>
+                <View style={styles.parkingHeader}>
+                    <Image source={require('../images/default-pfp.png')} style={styles.image} />
+                    <Text style={styles.username}>{user.displayName}</Text>
+                </View>
+                <MaterialIcons name="notifications" size={30} color="#b9dbe3" />
+            </View>
+
+            <TouchableOpacity onPress={handleBackPress}>
+                <Image source={backArrow} style={{ width: 30, height: 30 , margin: 20, marginBottom: -40}} />
+            </TouchableOpacity>
+
             <View style={styles.container}>
                 <Text style={styles.title}>Parking Spaces for Option {campus}</Text>
                 {Object.keys(parkingSpaces[campus]).map((space, index) => (
@@ -107,7 +131,7 @@ const ParkingSpaces = ({ navigation, route }) => {
                         style={styles.parkingSpace}
                         onPress={() => handleParkingSpacePress(space)}
                     >
-                        <Image source={parkingSpaces[campus][space].image} style={styles.image} />
+                        <Image source={parkingSpaces[campus][space].image} style={styles.image1} />
                         <Text style={styles.spaceText}>{space}</Text>
                     </TouchableOpacity>
                 ))}
@@ -138,8 +162,27 @@ const ParkingSpaces = ({ navigation, route }) => {
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        justifyContent: 'center', // Align content vertically in the middle
-        alignItems: 'center', // Align content horizontally in the middle
+    },
+    container1: {
+        flexDirection:"row",
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 20,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius:20,
+        backgroundColor: 'white',
+    },
+    parkingHeader: {
+       flexDirection:"row",
+       alignItems: 'center',
+    },
+    image: {
+        width: 80, 
+        height: 80, 
+    },
+    username: {
+        marginLeft: 20,
+        fontSize: 20,
     },
     container: {
         flex: 1,
@@ -159,9 +202,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 8,
     },
-    image: {
-        width: 50,
-        height: 50,
+    image1: {
+        width: 20,
+        height: 20,
         marginRight: 10,
     },
     spaceText: {

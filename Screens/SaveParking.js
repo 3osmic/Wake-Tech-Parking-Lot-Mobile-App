@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { KeyboardAvoidingView, ImageBackground, Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import {  ImageBackground, Image, Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js';
-import { useNavigation } from '@react-navigation/native';
 import { CameraView, useCameraPermissions } from 'expo-camera/next';
 
 export const SaveParking = ({ navigation }) => {

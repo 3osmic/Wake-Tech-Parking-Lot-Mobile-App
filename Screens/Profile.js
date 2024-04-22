@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-import { View, ImageBackground, Image, TouchableOpacity, DrawerLayoutAndroid, Text, SafeAreaView, ScrollView, Input } from 'react-native';
-import ImagePicker from 'react-native-image-picker';
+import { View, ImageBackground, Image, TouchableOpacity, DrawerLayoutAndroid, Text } from 'react-native';
 import { styles } from '../StyleSheet';
 import { getAuth } from "firebase/auth";
 import DrawerContent from './DrawerContent';

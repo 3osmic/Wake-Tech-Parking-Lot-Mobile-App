@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, ImageBackground, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { MaterialIcons } from '@expo/vector-icons';
+import { getAuth } from "firebase/auth";
+import backArrow from '../assets/back_arrow.png';
 
 const SavedPayments = ({ route }) => {
   const { lastFourDigits } = route.params;
@@ -10,8 +13,28 @@ const SavedPayments = ({ route }) => {
     navigation.navigate('Homepage'); 
   };
 
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  const handleBackPress = () => {
+      navigation.goBack(); // Go back to the previous screen
+    };
+
   return (
     <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
+
+      <View style={styles.container1}>
+        <View style={styles.parkingHeader}>
+          <Image source={require('../images/default-pfp.png')} style={styles.image} />
+          <Text style={styles.username}>{user.displayName}</Text>
+        </View>
+        <MaterialIcons name="notifications" size={30} color="#b9dbe3" />
+      </View>
+
+      <TouchableOpacity onPress={handleBackPress}>
+        <Image source={backArrow} style={{ width: 30, height: 30 , margin: 20, marginBottom: -50}} />
+      </TouchableOpacity>
+    
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Saved Payment Methods</Text>
@@ -35,6 +58,27 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
+  },
+  container1: {
+    flexDirection:"row",
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 20,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius:20,
+    backgroundColor: 'white',
+  },
+  parkingHeader: {
+    flexDirection:"row",
+    alignItems: 'center',
+  },
+  image: {
+    width: 80, 
+    height: 80, 
+  },
+  username: {
+    marginLeft: 20,
+    fontSize: 20,
   },
   container: {
     flex: 1,

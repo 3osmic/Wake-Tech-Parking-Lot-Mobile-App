@@ -1,11 +1,7 @@
-import { SafeAreaView, StyleSheet, Text, View,TouchableOpacity,Image,ImageBackground } from 'react-native'
+import { SafeAreaView, StyleSheet, ImageBackground } from 'react-native'
 import React from 'react'
-import { styles } from '../StyleSheet'
-import icon from '../assets/icon.png';
 import SearchBar from '../src/components/SearchBar';
 import PopularTopics from '../src/components/PopularTopics';
-import Icon from 'react-native-vector-icons/Ionicons';
-import tw from 'tailwind-react-native-classnames';
 import Logo from '../src/components/Logo';
 
 

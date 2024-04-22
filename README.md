@@ -159,8 +159,68 @@ Once you have everything installed, to launch the app you’ll need to:
 4. Then you should be in the app.
 
 ### Uninstalling the Software
+- In order to uninstall the app all you need to do is navigate to the extracted project folder and delete it.
 
 ### Troubleshooting
+
+**Common Installation Issues**
+
+If you encounter problems during the installation of the WakePark app, follow these steps to resolve common issues:
+
+#### Problem 1: Cannot Download the App
+1. Error messages saying "Unable to Download" or "Download Failed."
+2. Download does not start or gets stuck.
+
+#### Solutions:
+1. **Check Network Connection:**
+    - Ensure your device is connected to a stable internet connection. Switch between Wi-Fi and mobile data to check if the issue is related to a specific network.
+
+2. **Check Storage Space:**
+    - Ensure your device has sufficient storage space for the app. Clear out unnecessary files or apps to make room.
+
+3. **Restart Your Device:**
+    - Sometimes, simply restarting your device can resolve underlying issues that affect app downloads.
+
+#### Problem 2: Installation Stalls or Freezes
+1. Installation progress bar does not move for an extended time.
+2. The app begins to install but does not complete.
+
+#### Solutions:
+1. **Force Stop the App Store:**
+    - On iOS, double-tap the Home button and swipe up on the App Store to close it. On Android, go to Settings > Apps > App Store > Force Stop.
+ 
+2. **Clear Cache (Android Only):**
+    - Go to Settings > Apps > Google Play Store > Storage > Clear Cache.
+
+3. **Restart Installation:**
+    - After performing the above steps, try reinstalling the app from the App Store or Google Play Store.
+
+#### Problem 3: App Won't Open After Installation
+1. The app crashes immediately after opening.
+2. The app does not respond after tapping the icon.
+
+#### Solutions:
+1. **Check for Updates:**
+    - Ensure that your device's operating system and the app are up to date. Developers often release updates to fix bugs that cause crashing.
+
+2. **Reinstall the App:**
+    - Uninstall the app, then reinstall it from the App Store or Google Play Store. This can fix corrupted installations.
+
+3. **Contact Support:**
+    - If problems persist, contact WakePark support for further assistance. Provide details about the issue and any error messages you've seen.
+
+#### Problem 4: Error Messages During Installation
+1. Receiving specific error codes or messages during the installation process.
+
+#### Solutions:
+1. **Search for Error Codes:**
+     - Use a search engine to look up specific error codes or messages you receive for detailed troubleshooting steps.
+
+2. **Update Device Software:**
+    - Install any available updates for your device’s operating system, as some apps require the latest version to function properly.
+
+3. **Consult the FAQ or Support:**
+    - Check the WakePark app FAQ for any known issues with solutions or contact support directly for help.
 
 ### Contact and Support
 For additional support, please do not hesitate to contact any of the following developers:

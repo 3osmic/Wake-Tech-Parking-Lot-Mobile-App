@@ -1,0 +1,56 @@
+{
+  "get-started": [
+    {
+      "id": "810ab205-7b1f-49c0-ae1d-4418aff13d51",
+      "title": "Getting Started with Our Parking Facility",
+      "link": "/get-started",
+      "description": "Learn how to easily navigate our parking services.",
+      "content": "Welcome to our parking facility! Whether you're a first-time visitor or a returning customer, this guide will help you understand how to use our services effectively. From locating available spots to understanding our pricing, we've got you covered."
+    }
+  ],
+  "parking": [
+    {
+      "id": "b1c2d3e4-f5g6-h7i8-j9k0-l1m2n3o4p5q6",
+      "title": "Parking Options and Rates",
+      "link": "/parking",
+      "description": "Explore our various parking options to find the best fit for you.",
+      "content": "Our facility offers a range of parking options, including short-term, long-term, and VIP parking. Rates vary depending on the option and duration of stay. Check this section for detailed information on pricing and location of parking spots."
+    }
+  ],
+  "safety": [
+    {
+      "id": "r2s3t4u5-v6w7-x8y9-z0a1-b2c3d4e5f6g7",
+      "title": "Safety Measures and Guidelines",
+      "link": "/safety",
+      "description": "Your safety is our top priority. Learn about the measures we take to ensure a secure environment.",
+      "content": "We are committed to providing a safe and secure parking environment for all our visitors. This includes 24/7 surveillance, well-lit parking areas, and emergency call stations throughout the facility. Please follow our guidelines to ensure your safety and that of others."
+    }
+  ],
+  "community": [
+    {
+      "id": "h4i5j6k7-l8m9-n0o1-p2q3-r4s5t6u7v8w9",
+      "title": "Join Our Community",
+      "link": "/community",
+      "description": "Connect with fellow users and stay informed about community events.",
+      "content": "Become a part of our vibrant community! We host regular events and workshops on vehicle safety, eco-friendly driving, and more. Follow this section for updates and how you can participate."
+    }
+  ],
+  "payForParking": [
+    {
+      "id": "x1y2z3a4-b5c6-d7e8-f9g0-h1i2j3k4l5m6",
+      "title": "Payment Options",
+      "link": "/pay-for-parking",
+      "description": "Discover all the ways you can pay for parking, including our convenient mobile app.",
+      "content": "Paying for parking has never been easier. We offer a variety of payment options, including cash, credit cards, and our mobile app, which allows you to pay on-the-go and even reserve spots in advance."
+    }
+  ],
+  "ContactUs": [
+    {
+      "id": "n7o8p9q0-r1s2-t3u4-v5w6-x7y8z9a0b1c2",
+      "title": "Contact Us",
+      "link": "/contact",
+      "description": "Have questions or feedback? We're here to help.",
+      "content": "Our team is ready to assist you with any inquiries or feedback you may have. Contact us through our website, email, or phone. We aim to respond to all queries within 24 hours."
+    }
+  ]
+}

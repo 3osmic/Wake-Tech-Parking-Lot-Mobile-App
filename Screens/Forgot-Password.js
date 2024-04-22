@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StatusBar, ImageBackground, Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../StyleSheet';
 import { auth, sendPasswordResetEmail } from '../database/firebase'; // Update the path accordingly
@@ -32,7 +32,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.backButton} onPress={handleBackToLogin}>
           <Image source={require('../assets/back_arrow.png')} style={styles.backIcon} />
@@ -43,11 +43,10 @@ export default function ForgotPassword() {
         <Text style={[styles.marginText, styles.centeredText]}>Enter Your Email To Receive A Code</Text>
 
         <TextInput
-          style={styles.input}
+          style={styles.emailInput}
           placeholder="Enter your email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          fontWeight={'bold'}
         />
 
         <TouchableOpacity style={styles.loginButton} onPress={handleResetPassword}>

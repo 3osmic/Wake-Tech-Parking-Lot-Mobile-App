@@ -1,6 +1,10 @@
-import React from 'react';
-import { Text, View, FlatList, Image, StyleSheet, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
-
+import React, { useEffect } from "react";
+import { Text, View, FlatList, Image, StyleSheet, ImageBackground, TouchableOpacity, ScrollView,SafeAreaView } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
+import { FontAwesome } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import colors from '../src/components/colors';
+import Chat from '../src/components/Chat';
 const HomepageFix = () => {
   const images = [
     { key: '1', source: require('../assets/updates/Regional-Math-Competition.jpg'), title: 'College Hosts Regional Math Competition' },
@@ -33,7 +37,29 @@ const HomepageFix = () => {
     </View>
   );
 
+  /* Chat Button */
+  const navigation = useNavigation();
+
+    useEffect(() => {
+        navigation.setOptions({
+            headerLeft: () => (
+                <FontAwesome name="search" size={24} color={colors.gray} style={{marginLeft: 15}}/>
+            ),
+            headerRight: () => (
+                <Image
+                    source={{ uri: catImageUrl }}
+                    style={{
+                        width: 40,
+                        height: 40,
+                        marginRight: 15,
+                    }}
+                />
+            ),
+        });
+    }, [navigation]);
+
   return (
+
     <ScrollView contentContainerStyle={styles.container}>
       <ImageBackground
         source={require('../assets/bg2.png')}
@@ -74,14 +100,26 @@ const HomepageFix = () => {
         <View style={styles.featuredContainer}>
           <Text style={styles.featuredTitle}>Featured Campus</Text>
           <Image source={require('../assets/WakeTech.png')} style={styles.campus} />
+          <View style={styles.chatContainer}>
+              <TouchableOpacity
+                  onPress={() => navigation.navigate("Chat")}
+                  style={styles.chatButton}
+              >
+                  <Entypo name="chat" size={24} color={colors.lightGray} />
+                
+              </TouchableOpacity>
+          </View>
         </View>
+       
       </ImageBackground>
     </ScrollView>
+    
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     flexGrow: 1,
     justifyContent: 'center',
   },
@@ -164,7 +202,11 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   featuredContainer: {
-    margin: 10,
+   display: 'flex',
+   flexDirection: 'column',
+   flex: 1,
+   
+   margin: 10,
   },
   featuredTitle: {
     fontSize: 20,
@@ -175,6 +217,34 @@ const styles = StyleSheet.create({
     height: '50%',
     borderRadius: 10,
   },
+  /* Chat Button */
+  chatContainer: {
+            flex: 1,
+            position: 'relative',
+            top: 0,
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+            backgroundColor: "transparent",
+        },
+        chatButton: {
+
+            backgroundColor: colors.primary,
+            height: 50,
+            width: 50,
+            borderRadius: 25,
+            alignItems: 'center',
+            justifyContent: 'center',
+            shadowColor: colors.primary,
+
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: .9,
+            shadowRadius: 8,
+            marginRight: 20,
+            marginBottom: 50,
+        }
 });
 
 export default HomepageFix;

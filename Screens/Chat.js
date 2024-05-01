@@ -108,10 +108,10 @@ const Chat = () => {
     // Append new messages to the chat
     setMessages(GiftedChat.append(messages, newMessages));
 
-    // let the cusstomer know that a support team member will join in soon
+    // let the customer know that a support team member will join in soon
     const warmMessage = {
       _id: Math.random().toString(36).substring(7),
-      text: "Thank you for reaching out. A member of support will join in and assist you soon.",
+      text: "Can I put you on hold for a moment as I connect you to a member of our support?",
       createdAt: new Date(),
       user: {
         _id: 2,

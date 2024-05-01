@@ -18,7 +18,7 @@ const Chat = () => {
   const loadWelcomeMessage = () => {
     const initialMessage = {
       _id: 0,
-      text: "Hello! Welcome to our support service. How can we assist you today?",
+      text: "Hi! I'm Steve.choose one of the options below or write a message to reach our staff!",
       createdAt: new Date(),
       user: {
         _id: 2,
